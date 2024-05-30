@@ -9,5 +9,5 @@ def add_pari(_id, pari):
 
 def get_pari(_id):
     if _id not in pari_map:
-        return None
+        return []
     return pari_map[_id]

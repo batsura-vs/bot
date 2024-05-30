@@ -22,7 +22,7 @@ async def start(message: types.Message, state: FSMContext):
 
 @dp.message(F.text == "Мои пари")
 async def my_pari(message: types.Message, state: FSMContext):
-    await message.answer(f"Ваши пари: {get_pari(message.from_user.id)}")
+    await message.answer("Ваши пари:\n" + '\n'.join([i["owner"] for i in get_pari(message.from_user.id)]))
     await state.set_state(UserStates.BASE)
 
 
