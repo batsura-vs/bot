@@ -28,7 +28,9 @@ async def my_pari(message: types.Message, state: FSMContext):
 
 @dp.message(F.text == "Создать пари")
 async def create_pari(message: types.Message, state: FSMContext):
-    add_pari(message.from_user.id, 0)
+    add_pari(message.from_user.id, {
+        "owner": message.from_user.username,
+    })
     await message.answer(f"Ваш пари создан")
     await state.set_state(UserStates.BASE)
 
